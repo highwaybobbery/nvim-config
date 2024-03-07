@@ -1,7 +1,7 @@
 return {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' }},
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -19,5 +19,26 @@ return {
     },
     lazy = false,
   },
+  {
+    "nvim-neotest/neotest",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "olimorris/neotest-rspec",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-rspec")
+        },
+      })
+    end
+  },
   { 'tpope/vim-fugitive' },
+  { 'tpope/vim-rails' },
+  { 'tpope/vim-dispatch' },
+  { 'echasnovski/mini.surround', version = '*' },
+  { 'echasnovski/mini.align', version = '*' },
 }
