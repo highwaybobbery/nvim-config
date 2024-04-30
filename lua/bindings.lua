@@ -23,7 +23,8 @@ Bindings.setup_late = function(opts)
   --vim.keymap.set('n', ',', '/', { noremap=true })
 
   -- NeoTree 
-  vim.keymap.set('n', '<leader>lt', '<Cmd>Neotree toggle left<CR>', { noremap=true })
+  vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree toggle left<CR>', { noremap=true, desc="Toggle File Tree" })
+  vim.keymap.set('n', '<leader>tb', '<Cmd>Neotree source=buffers toggle left<CR>', { noremap=true, desc="Toggle Buffer List" })
 
   -- Telescope
   vim.keymap.set('n', '<leader>lf', opts.telescope_builtin.find_files, {})
@@ -32,6 +33,15 @@ Bindings.setup_late = function(opts)
 
   -- neotest
   -- vim.keymap.set('n', '<leader>rn', ''  { noremap=true })
+
+  -- vim-tmux-navigator
+  vim.keymap.set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
+  vim.keymap.set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
+  vim.keymap.set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })
+  vim.keymap.set("n", "<C-l>", "<Cmd>NvimTmuxNavigateRight<CR>", { silent = true })
+  vim.keymap.set("n", "<C-\\>", "<Cmd>NvimTmuxNavigateLastActive<CR>", { silent = true })
+  vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { silent = true })
+  vim.keymap.set("n", "<leader>bl", ":ls<CR>")
   
 end
 
